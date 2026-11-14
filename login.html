@@ -1,1 +1,124 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | HR Easy Tech</title>
+  <link rel="stylesheet" href="./assets/css/auth.css">
+</head>
+<body>
+
+<div class="auth-layout">
+
+  <section class="auth-side">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">HR</span>
+      HR Easy <b>Tech</b>
+    </a>
+
+    <div class="side-content">
+      <span class="eyebrow">WELCOME BACK</span>
+      <h1>Your documents.<br>One smart workspace.</h1>
+      <p>Access your document tools, smart OCR and PDF workspace from one place.</p>
+
+      <div class="side-feature">
+        <span>✓</span> Smart Document Scanner
+      </div>
+      <div class="side-feature">
+        <span>✓</span> HR Smart OCR
+      </div>
+      <div class="side-feature">
+        <span>✓</span> Advanced PDF Tools
+      </div>
+    </div>
+
+    <p class="side-credit">Developed by Alpha.HR</p>
+  </section>
+
+  <section class="auth-main">
+    <div class="auth-box">
+
+      <a href="index.html" class="mobile-brand">
+        <span class="brand-icon">HR</span>
+        HR Easy <b>Tech</b>
+      </a>
+
+      <span class="eyebrow">ACCOUNT ACCESS</span>
+      <h2>Welcome Back!</h2>
+      <p class="auth-description">Log in to continue to your workspace.</p>
+
+      <form id="loginForm">
+
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+        >
+
+        <label for="password">Password</label>
+        <div class="password-field">
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+            minlength="8"
+          >
+          <button type="button" class="toggle-password" data-target="password">Show</button>
+        </div>
+
+        <div class="form-options">
+          <label class="remember">
+            <input type="checkbox" id="remember">
+            Remember me
+          </label>
+          <a href="#" id="forgotPassword">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="auth-submit">
+          Log In <span>→</span>
+        </button>
+
+        <p id="authMessage" class="auth-message" aria-live="polite">
+          Authentication setup is pending.
+        </p>
+      </form>
+
+      <div class="auth-divider"><span>NEW TO HR EASY TECH?</span></div>
+
+      <p class="switch-auth">
+        Don't have an account?
+        <a href="register.html">Create Account</a>
+      </p>
+
+      <a href="index.html" class="back-home">← Back to Home</a>
+
+    </div>
+  </section>
+
+</div>
+
+<script>
+document.querySelectorAll(".toggle-password").forEach(button => {
+  button.addEventListener("click", () => {
+    const input = document.getElementById(button.dataset.target);
+    const visible = input.type === "text";
+    input.type = visible ? "password" : "text";
+    button.textContent = visible ? "Show" : "Hide";
+  });
+});
+
+document.getElementById("loginForm").addEventListener("submit", e => {
+  e.preventDefault();
+  document.getElementById("authMessage").textContent =
+    "Login service is not connected yet. Please wait for backend setup.";
+});
+</script>
+
+</body>
+</html>
