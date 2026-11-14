@@ -1,1 +1,150 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | HR Easy Tech</title>
+  <link rel="stylesheet" href="./assets/css/auth.css">
+</head>
+<body>
+
+<div class="auth-layout">
+
+  <section class="auth-side">
+    <a href="index.html" class="brand">
+      <span class="brand-icon">HR</span>
+      HR Easy <b>Tech</b>
+    </a>
+
+    <div class="side-content">
+      <span class="eyebrow">JOIN OUR PLATFORM</span>
+      <h1>Make your document workflow smarter.</h1>
+      <p>Create your free account and explore your personal document workspace.</p>
+
+      <div class="side-feature"><span>✓</span> Free Account</div>
+      <div class="side-feature"><span>✓</span> 10 Daily OCR Images</div>
+      <div class="side-feature"><span>✓</span> Smart Document Tools</div>
+    </div>
+
+    <p class="side-credit">Developed by Alpha.HR</p>
+  </section>
+
+  <section class="auth-main">
+    <div class="auth-box">
+
+      <a href="index.html" class="mobile-brand">
+        <span class="brand-icon">HR</span>
+        HR Easy <b>Tech</b>
+      </a>
+
+      <span class="eyebrow">GET STARTED FREE</span>
+      <h2>Create Account</h2>
+      <p class="auth-description">Join HR Easy Tech today.</p>
+
+      <form id="registerForm">
+
+        <label for="fullname">Full Name</label>
+        <input
+          type="text"
+          id="fullname"
+          placeholder="Enter your full name"
+          autocomplete="name"
+          required
+          minlength="2"
+        >
+
+        <label for="regEmail">Email Address</label>
+        <input
+          type="email"
+          id="regEmail"
+          placeholder="Enter your email"
+          autocomplete="email"
+          required
+        >
+
+        <label for="regPassword">Password</label>
+        <div class="password-field">
+          <input
+            type="password"
+            id="regPassword"
+            placeholder="Create a password"
+            autocomplete="new-password"
+            required
+            minlength="8"
+          >
+          <button type="button" class="toggle-password" data-target="regPassword">Show</button>
+        </div>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="password-field">
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm your password"
+            autocomplete="new-password"
+            required
+            minlength="8"
+          >
+          <button type="button" class="toggle-password" data-target="confirmPassword">Show</button>
+        </div>
+
+        <label class="terms-check">
+          <input type="checkbox" id="terms" required>
+          <span>I agree to the Terms of Service and Privacy Policy.</span>
+        </label>
+
+        <button type="submit" class="auth-submit">
+          Create Free Account <span>→</span>
+        </button>
+
+        <p id="registerMessage" class="auth-message" aria-live="polite">
+          Registration service is not connected yet.
+        </p>
+
+      </form>
+
+      <div class="auth-divider"><span>ALREADY REGISTERED?</span></div>
+
+      <p class="switch-auth">
+        Already have an account?
+        <a href="login.html">Log In</a>
+      </p>
+
+      <a href="index.html" class="back-home">← Back to Home</a>
+
+    </div>
+  </section>
+
+</div>
+
+<script>
+document.querySelectorAll(".toggle-password").forEach(button => {
+  button.addEventListener("click", () => {
+    const input = document.getElementById(button.dataset.target);
+    const visible = input.type === "text";
+    input.type = visible ? "password" : "text";
+    button.textContent = visible ? "Show" : "Hide";
+  });
+});
+
+document.getElementById("registerForm").addEventListener("submit", e => {
+  e.preventDefault();
+
+  const password = document.getElementById("regPassword").value;
+  const confirm = document.getElementById("confirmPassword");
+  const message = document.getElementById("registerMessage");
+
+  if (password !== confirm.value) {
+    message.textContent = "Passwords do not match.";
+    confirm.focus();
+    return;
+  }
+
+  message.textContent =
+    "Registration service is not connected yet. Backend setup is next.";
+});
+</script>
+
+</body>
+</html>
